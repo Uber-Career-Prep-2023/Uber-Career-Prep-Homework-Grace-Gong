@@ -1,7 +1,8 @@
-# Author: Your Name
+# Author: Grace Gong
 # Technique: Counting characters
 # Time Complexity: O(n)
 # Space Complexity: O(n)
+#time 40 min 
 
 def kAnagrams(str1, str2, k):
     str1 = str1.replace(" ", "").lower()
@@ -19,13 +20,13 @@ def kAnagrams(str1, str2, k):
         count1[index1] += 1
         count2[index2] += 1
 
-    diff_count = 0
+    diffCount = 0
     for i in range(26):
-        diff_count += abs(count1[i] - count2[i])
+        diffCount += abs(count1[i] - count2[i])
 
-    diff_count = diff_count // 2
+    diffCount = diffCount // 2
 
-    return diff_count <= k
+    return diffCount <= k
 
 test1 = ("apple", "peach", 1)
 test2 = ("apple", "peach", 2)
