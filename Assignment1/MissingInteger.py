@@ -1,4 +1,5 @@
-"""Grace Gong 
+"""
+Author:Grace Gong 
 Technique: binary search variation 
 Time Complexity: O(logn)
 Space Complexity: O(1) 

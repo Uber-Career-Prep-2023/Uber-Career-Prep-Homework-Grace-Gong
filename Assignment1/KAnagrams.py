@@ -1,4 +1,4 @@
-# Author: Your Name
+# Author: Grace Gong
 # Technique: Counting characters
 # Time Complexity: O(n)
 # Space Complexity: O(n)

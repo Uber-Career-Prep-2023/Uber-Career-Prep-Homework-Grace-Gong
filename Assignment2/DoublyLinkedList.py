@@ -1,37 +1,46 @@
-
 class Node:
     def __init__(self, data=None):
         self.data = data
         self.next = None
+        self.prev = None
 
 def insertAtFront(head, val):
-    new_node = Node(val)
-    new_node.next = head
-    return new_node
+    newNode = Node(val)
+    newNode.next = head
+    if head:
+        head.prev = newNode
+    return newNode
 
 def insertAtBack(head, val):
-    new_node = Node(val)
+    newNode = Node(val)
     if head is None:
         return new_node
     else:
         curr = head
         while curr.next:
             curr = curr.next
-        curr.next = new_node
+        curr.next = newNode
+        newNode.prev = curr
 
 def insertAfter(head, val, loc):
-    new_node = Node(val)
+    newNode = Node(val)
     curr = head
     while curr:
         if curr is loc:
-            new_node.next = curr.next
-            curr.next = new_node
+            newNode.next = curr.next
+            newNode.prev = curr
+            if curr.next:
+                curr.next.prev = newNode
+            curr.next = newNode
             break
         curr = curr.next
 
 def deleteFront(head):
     if head:
-        return head.next
+        newHead = head.next
+        if newHead:
+            newHead.prev = None
+        return newHead
 
 def deleteBack(head):
     if head:
@@ -46,12 +55,14 @@ def deleteBack(head):
 
 def deleteNode(head, loc):
     if head is loc:
-        return head.next
+        return deleteFront(head)
     else:
         curr = head
         while curr.next:
             if curr.next is loc:
                 curr.next = loc.next
+                if loc.next:
+                    loc.next.prev = curr
                 break
             curr = curr.next
     return head
@@ -65,24 +76,25 @@ def length(head):
     return count
 
 def reverseIterative(head):
-    prev = None
     curr = head
+    prev = None
     while curr:
-        next_node = curr.next
-        curr.next = prev
         prev = curr
-        curr = next_node
+        curr = curr.next
+        if curr:
+            curr.prev = prev
+    prev.next = None
     return prev
 
-def reverseRecursiveUtil(curr, prev):
-    if curr.next is None:
-        curr.next = prev
-        return curr
-    next_node = curr.next
-    curr.next = prev
-    return reverseRecursiveUtil(next_node, curr)
+def reverseRecursiveUtil(node):
+    if node is None:
+        return None
+    temp = node.next
+    node.next = node.prev
+    node.prev = temp
+    if node.prev is None:
+        return node
+    return reverseRecursiveUtil(node.prev)
 
 def reverseRecursive(head):
-    if head is None:
-        return head
-    return reverseRecursiveUtil(head, None)
+    return reverseRecursiveUtil(head)

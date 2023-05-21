@@ -1,4 +1,5 @@
-"""Grace Gong 
+"""
+Author:Grace Gong 
 Technique: one-directional running computation
 Time Complexity: O(n)
 Space Complexity: O(n)

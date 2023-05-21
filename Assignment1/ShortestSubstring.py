@@ -1,4 +1,5 @@
-"""Grace Gong 
+"""
+Author:Grace Gong 
 Technique:  variable-size (shrinking/growing) sliding window
 Time Complexity: O(n+m) 
 Space Complexity: O(n+m) 

@@ -1,4 +1,5 @@
-"""Grace Gong 
+"""
+Author:Grace Gong 
 Technique: hashing
 Time Complexity: O(n)
 Space Complexity: O(n)

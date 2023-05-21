@@ -1,4 +1,5 @@
-"""Grace Gong 
+"""
+Author:Grace Gong 
 Technique:  forward/backward two-pointer
 Time Complexity:  O(n) 
 Space Complexity: O(n) 

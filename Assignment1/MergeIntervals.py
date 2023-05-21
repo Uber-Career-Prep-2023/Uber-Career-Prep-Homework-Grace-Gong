@@ -1,4 +1,5 @@
-"""Grace Gong 
+"""
+Author:Grace Gong 
 Technique: sorting
 Time Complexity: O(nlogn)
 Space Complexity: O(n)
